@@ -1,0 +1,92 @@
+body{
+    background: #1d2630;
+}
+
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loading ::before, .loading ::after{
+    position: absolute;
+    content: "";
+
+}
+
+.clock .container{
+    width: 100px;
+    height: 100px;
+    background: #ffffff;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.clock .container::before,
+.clock .container::after{
+    width: 50%;
+    height: 100%;
+    top: 0%;
+    background: #ef1144;
+    z-index: 2;
+}
+
+.clock .container::before{
+    left: 50%;
+    border-radius: 0 100px 100px 0;
+    transform-origin: left center;
+    animation: clock1 10s infinite linear;
+}
+
+.clock .container::after{
+    left: 0%;
+    border-radius: 100px 0 0 100px;
+    transform-origin: right center;
+    animation: clock2 10s infinite linear;
+}
+
+@keyframes clock1{
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(180deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    75%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes clock2{
+    25%{
+        transform: rotate(0deg);
+        background: #ef1144;
+    }
+    25.01%{
+        transform: rotate(-180deg);
+        background: #ffffff;
+    }
+    50%{
+        transform: rotate(0deg);
+        background: #ffffff;
+    }
+    74.98%{
+        transform: rotate(0deg);
+        background: #ffffff;
+    }
+    74.99%{
+        transform: rotate(-180deg);
+        background: #ef1144;
+    }
+    100%{
+        transform: rotate(0deg);
+        background: #ef1144;
+    }
+}
